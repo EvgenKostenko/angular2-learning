@@ -1,5 +1,5 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
-import { Recipe } from '../recipe'
+import { Recipe } from '../../../models/recipe'
 
 @Component({
   selector: 'rb-recipe-list',
@@ -7,9 +7,11 @@ import { Recipe } from '../recipe'
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[] = [];
+  recipes: Recipe[] = [
+    new Recipe('Schnitzel', 'Very tasty', 'http://www.hoehenrainer.de/wp-content/uploads/Schnitzel-Wiener-Art.jpg', []),
+    new Recipe('Summer Salad', 'Okayish', 'http://ohmyveggies.com/wp-content/uploads/2013/06/the_perfect_summer_salad.jpg', [])
+  ];
   @Output() recipeSelected =  new EventEmitter<Recipe>();
-  recipe = new Recipe('Dummy', 'Dummy', 'http://thumbs.ebaystatic.com/images/m/mfXELL6zPWJE4OC0agiXMZw/s-l225.jpg');
 
   constructor() { }
 
